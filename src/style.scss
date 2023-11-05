@@ -1,0 +1,11 @@
+.wp-block-willsides-image-container-dynamic {
+    overflow: hidden;
+    background-size: cover;
+}
+
+.wp-block-willsides-image-container-dynamic .willsides-overlay {
+    width: 100%;
+    height: 100%;
+	display: flex;
+    flex-direction: column;
+}
