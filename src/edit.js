@@ -57,7 +57,6 @@ export default function Edit({ attributes, setAttributes }) {
 		blockWidth,
 		blockWidthUnit,
 	} = attributes;
-	const blockProps = useBlockProps();
 
 	const toggleBackgroundAttachment = () => {
 		const value = backgroundAttachment === 'fixed' ? 'scroll' : 'fixed';
@@ -102,30 +101,30 @@ export default function Edit({ attributes, setAttributes }) {
 	
 	const linkIcon = attributes.isLink ? link : linkOff;
 
+	const wrapperStyles = {
+		backgroundColor: 'grey',
+		backgroundAttachment: backgroundAttachment,
+		backgroundPosition: backgroundPosition,
+	};
+
+	if (blockHeight != null) {
+		wrapperStyles.height = `${blockHeight}${blockHeightUnit}`;
+	}
+
+	if (blockWidth != null) {
+		wrapperStyles.width = `${blockWidth}${blockWidthUnit}`;
+	}
+
+	if (aspectRatio != null) {
+		wrapperStyles.aspectRatio = aspectRatio;
+	}
+
+	const blockProps = useBlockProps( {
+		style: wrapperStyles,
+	} );
+
 	return (
-		<div { ...blockProps }
-			style={(() => {
-				const styles = {
-					backgroundColor: 'grey',
-					backgroundAttachment: backgroundAttachment,
-					backgroundPosition: backgroundPosition,
-				};
-
-				if (blockHeight != null) {
-					styles.height = `${blockHeight}${blockHeightUnit}`;
-				}
-
-				if (blockWidth != null) {
-					styles.width = `${blockWidth}${blockWidthUnit}`;
-				}
-			
-				if (aspectRatio != null) {
-					styles.aspectRatio = aspectRatio;
-				}
-			
-				return styles;
-			})()} 
-		>
+		<div { ...blockProps }>
 			<BlockControls>
 				<ToolbarGroup>
 					<ToolbarButton
@@ -327,7 +326,7 @@ export default function Edit({ attributes, setAttributes }) {
 											value={blockWidthUnit}
 											options={[
 												{ label: 'px', value: 'px' },
-												{ label: 'vh', value: 'vh' },
+												{ label: 'vw', value: 'vw' },
 												{ label: 'em', value: 'em' },
 												{ label: 'rem', value: 'rem' },
 												{ label: '%', value: '%' },
