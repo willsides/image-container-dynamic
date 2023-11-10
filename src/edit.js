@@ -2,6 +2,7 @@ import {
 	InnerBlocks, 
 	useBlockProps, 
 	BlockControls,
+	InspectorControls,
 	__experimentalLinkControl as LinkControl,
 } from '@wordpress/block-editor';
 import { 
@@ -11,8 +12,10 @@ import {
 	ToolbarDropdownMenu,
 	RangeControl, 
 	SelectControl,
+	TextControl,
 	MenuGroup, 
 	MenuItem,
+	PanelBody,
 } from '@wordpress/components';
 import './editor.scss';
 import { 
@@ -427,6 +430,16 @@ export default function Edit({ attributes, setAttributes }) {
 					</ToolbarDropdownMenu>
 				</ToolbarGroup>
 			</BlockControls>
+			<InspectorControls>
+				<PanelBody title="Advanced" initialOpen={true}>
+				<TextControl
+					label="Wrapper ID"
+					value={attributes.wrapperId}
+					onChange={(newId) => setAttributes({wrapperId: newId,})}
+					help="Unique identifier for the wrapper element."
+				/>
+				</PanelBody>
+			</InspectorControls>
 			{page && page.url ? (
 				<a 
 					href={page.url} 

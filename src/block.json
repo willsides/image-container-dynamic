@@ -67,6 +67,10 @@
 		"flexJustify": {
 			"type": "string",
 			"default": "flex-end"
+		},
+		"wrapperId": {
+			"type": "string",
+			"default": null
 		}
     },
 	"providesContext": {

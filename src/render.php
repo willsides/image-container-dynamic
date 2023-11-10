@@ -26,11 +26,16 @@ $block_width = isset($attributes['blockWidth']) ? esc_attr($attributes['blockWid
 $height_unit = isset($attributes['blockHeightUnit']) ? esc_attr($attributes['blockHeightUnit']) : null;
 $width_unit = isset($attributes['blockWidthUnit']) ? esc_attr($attributes['blockWidthUnit']) : null;
 $link_opens_new_tab = isset($attributes['page']['openInNewTab']) && $attributes['page']['openInNewTab'];
+$wrapperId = isset($attributes['wrapperId']) && $attributes['wrapperId'] ? esc_attr($attributes['wrapperId']) : null;
 
 // Prepare inline CSS
 $inline_styles = '';
+$class_list = '';
+$id_list = '';
 if ($background_image_url) {
     $inline_styles .= sprintf('background-image:url(%s);', $background_image_url);
+} else {
+    $class_list .= 'ws-no-image';
 }
 if ($background_attachment) {
     $inline_styles .= sprintf('background-attachment:%s;', $background_attachment);
@@ -47,10 +52,15 @@ if ($block_height !== null) {
 if ($aspect_ratio !== null) {
     $inline_styles .= sprintf('aspect-ratio:%s;', $aspect_ratio);
 }
+if ($wrapperId !== null) {
+    $id_list .= $wrapperId;
+}
 
 // Get the wrapper attributes, including inline styles
 $wrapper_attributes = get_block_wrapper_attributes([
-    'style' => $inline_styles
+    'class' => $class_list,
+    'style' => $inline_styles,
+    'id' => $id_list
 ]);
 
 // Prepare overlay element

@@ -431,7 +431,17 @@ function Edit({
     onClick: () => setAttributes({
       flexJustify: 'flex-end'
     })
-  }, "Bottom")))))), page && page.url ? (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+  }, "Bottom")))))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
+    title: "Advanced",
+    initialOpen: true
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+    label: "Wrapper ID",
+    value: attributes.wrapperId,
+    onChange: newId => setAttributes({
+      wrapperId: newId
+    }),
+    help: "Unique identifier for the wrapper element."
+  }))), page && page.url ? (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
     href: page.url,
     style: {
       justifyContent: `${flexJustify}`
@@ -974,7 +984,7 @@ module.exports = window["wp"]["primitives"];
   \************************/
 /***/ (function(module) {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"willsides/image-container-dynamic","version":"0.1.0","title":"Image Container - Dynamic","category":"media","icon":"cover-image","description":"Displays a post thumbnail as a background over nested blocks.","example":{},"supports":{"html":false,"align":["wide","full"],"spacing":{"margin":true,"padding":true,"blockGap":true},"color":{"background":true,"gradients":true,"text":true,"link":true}},"attributes":{"page":{"type":"object","default":null},"isLink":{"type":"boolean","default":true},"postId":{"type":"integer","default":null},"aspectRatio":{"type":"string","default":null},"blockHeight":{"type":"number","default":null},"blockHeightUnit":{"type":"string","default":"px"},"blockWidth":{"type":"number","default":null},"blockWidthUnit":{"type":"string","default":"px"},"backgroundAttachment":{"type":"string","default":"scroll"},"backgroundPosition":{"type":"string","default":"center"},"flexJustify":{"type":"string","default":"flex-end"}},"providesContext":{"postId":"postId"},"textdomain":"image-container-dynamic","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"willsides/image-container-dynamic","version":"0.1.0","title":"Image Container - Dynamic","category":"media","icon":"cover-image","description":"Displays a post thumbnail as a background over nested blocks.","example":{},"supports":{"html":false,"align":["wide","full"],"spacing":{"margin":true,"padding":true,"blockGap":true},"color":{"background":true,"gradients":true,"text":true,"link":true}},"attributes":{"page":{"type":"object","default":null},"isLink":{"type":"boolean","default":true},"postId":{"type":"integer","default":null},"aspectRatio":{"type":"string","default":null},"blockHeight":{"type":"number","default":null},"blockHeightUnit":{"type":"string","default":"px"},"blockWidth":{"type":"number","default":null},"blockWidthUnit":{"type":"string","default":"px"},"backgroundAttachment":{"type":"string","default":"scroll"},"backgroundPosition":{"type":"string","default":"center"},"flexJustify":{"type":"string","default":"flex-end"},"wrapperId":{"type":"string","default":null}},"providesContext":{"postId":"postId"},"textdomain":"image-container-dynamic","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php"}');
 
 /***/ })
 
